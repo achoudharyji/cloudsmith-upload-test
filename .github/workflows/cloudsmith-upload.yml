@@ -10,8 +10,12 @@ jobs:
     steps:
       - name: Checkout code (with LFS support)
         uses: actions/checkout@v3
-        with:
-          lfs: true 
+        
+      - name: Set up Git and Git LFS
+        run: |
+          git lfs install
+          git lfs fetch --include="vault_1.17.5+ent.hsm_linux_amd64.zip"
+          git lfs checkout vault_1.17.5+ent.hsm_linux_amd64.zip
 
       - name: Set up Python
         uses: actions/setup-python@v4
