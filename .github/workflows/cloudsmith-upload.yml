@@ -30,4 +30,8 @@ jobs:
         env:
           CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
         run: |
-          cloudsmith push raw adityatestenv/cloudsmith-cli-test vault_1.17.5+ent.hsm_linux_amd64.zip
+          cloudsmith push raw adityatestenv/cloudsmith-cli-test vault_1.17.5+ent.hsm_linux_amd64.zip \
+           --name vault_1.17.5+ent.hsm_linux_amd64.zip \
+           --version 1.17.5-hsm \
+           --summary "Vault Enterprise HSM build for Linux AMD64" \
+           --description "HashiCorp Vault 1.17.5+ent.hsm compiled for Linux AMD64 architecture"
