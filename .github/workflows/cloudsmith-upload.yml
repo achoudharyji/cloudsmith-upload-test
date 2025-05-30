@@ -8,14 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code (with LFS support)
-        uses: actions/checkout@v3
-        
-      - name: Set up Git and Git LFS
+      - name: Download the binary using curl
         run: |
-          git lfs install
-          git lfs fetch --include="vault_1.17.5+ent.hsm_linux_amd64.zip"
-          git lfs checkout vault_1.17.5+ent.hsm_linux_amd64.zip
+          curl -L -o vault_1.17.5+ent.hsm_linux_amd64.zip https://github.com/achoudharyji/cloudsmith-upload-test/blob/37e69c78fb655c07c99de29dbcfdf2b5a6cbc874/vault_1.17.5%2Bent.hsm_linux_amd64.zip
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,7 +20,7 @@ jobs:
       - name: Install Cloudsmith CLI
         run: pip install cloudsmith-cli
 
-      - name: Confirm LFS file exists and is real
+      - name: Confirm file exists and is real
         run: |
           ls -lh vault_1.17.5+ent.hsm_linux_amd64.zip
           file vault_1.17.5+ent.hsm_linux_amd64.zip
