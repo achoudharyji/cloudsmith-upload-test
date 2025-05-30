@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Download the binary using curl
         run: |
-          curl -L -o vault_1.17.5+ent.hsm_linux_amd64.zip https://github.com/achoudharyji/cloudsmith-upload-test/blob/37e69c78fb655c07c99de29dbcfdf2b5a6cbc874/vault_1.17.5%2Bent.hsm_linux_amd64.zip
+          curl -L -o vault_1.17.5+ent.hsm_linux_amd64.zip https://github.com/achoudharyji/cloudsmith-upload-test/releases/download/v1.0.0/vault_1.17.5+ent.hsm_linux_amd64.zip
 
       - name: Set up Python
         uses: actions/setup-python@v4
